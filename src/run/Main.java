@@ -31,8 +31,7 @@ public class Main extends PApplet{
     }
 
     public void draw(){
-    	o.listen();
-    	o.draw();
+    	o.run();
     }
 	
 }

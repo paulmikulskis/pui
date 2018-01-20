@@ -106,4 +106,9 @@ public class ObjectSelector extends PApplet{
 			((PApplet) o).draw();
 		}
 	}
+	
+	public void run() {
+		this.listen();
+		this.draw();
+	}
 }
