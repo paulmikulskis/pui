@@ -2,12 +2,12 @@ package run;
 
 import processing.core.PApplet;
 import slider.HorizontalContinuousSlider;
-import slider.HorizontalDiscreteSlider;
+import slider.VerticalDiscreteSlider;
 import slider.VerticalContinuousSlider;
 
 public class Main extends PApplet{
 	
-	VerticalContinuousSlider slider1;
+	VerticalDiscreteSlider slider1;
 	HorizontalContinuousSlider slider2;
 	ObjectSelector o;
 	
@@ -22,7 +22,7 @@ public class Main extends PApplet{
     public void setup(){
     	fill(120,50,240);
     	o = new ObjectSelector(this);
-    	slider1 = new VerticalContinuousSlider(20,200,100,30,this);
+    	slider1 = new VerticalDiscreteSlider(20,200,100,4,this);
     	//slider2 = new HorizontalContinuousSlider (20,400,600,30,this);
     	slider1.toggleDisplay();
     	//slider2.toggleDisplay();

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import geometry.GeometryTester;
 import processing.core.PApplet;
 import slider.HorizontalContinuousSlider;
-import slider.HorizontalDiscreteSlider;
+import slider.VerticalDiscreteSlider;
 import slider.VerticalContinuousSlider;
 
 public class ObjectSelector extends PApplet{
@@ -49,35 +49,35 @@ public class ObjectSelector extends PApplet{
 			
 			//-------Case if the GUI item is a HorizontalDiscreteSlider-------
 			case "class slider.HorizontalDiscreteSlider":
-				if(tester.insideCircle(((HorizontalDiscreteSlider)o).indicator[0], ((HorizontalDiscreteSlider)o).indicator[1], (((HorizontalDiscreteSlider)o).indicator[2])/2, mouseX, mouseY)) {
-					((HorizontalDiscreteSlider)o).mouseOver = true;
+				if(tester.insideCircle(((VerticalDiscreteSlider)o).indicator[0], ((VerticalDiscreteSlider)o).indicator[1], (((VerticalDiscreteSlider)o).indicator[2])/2, mouseX, mouseY)) {
+					((VerticalDiscreteSlider)o).mouseOver = true;
 				}
 				else {
-					((HorizontalDiscreteSlider)o).mouseOver = false;
+					((VerticalDiscreteSlider)o).mouseOver = false;
 				}
 				
 				if(p.mousePressed) {
-					((HorizontalDiscreteSlider)o).mousePress = true;
+					((VerticalDiscreteSlider)o).mousePress = true;
 				}
 				else {
-					((HorizontalDiscreteSlider)o).mousePress = false;
+					((VerticalDiscreteSlider)o).mousePress = false;
 				}
 			break;
 			
 			//-------Case if the GUI item is a VerticalDiscreteSlider-------
 			case "class slider.VerticalDiscreteSlider":
-				if(tester.insideCircle(((HorizontalDiscreteSlider)o).indicator[0], ((HorizontalDiscreteSlider)o).indicator[1], (((HorizontalDiscreteSlider)o).indicator[2])/2, mouseX, mouseY)) {
-					((HorizontalDiscreteSlider)o).mouseOver = true;
+				if(tester.insideCircle(((VerticalDiscreteSlider)o).indicator[0], ((VerticalDiscreteSlider)o).indicator[1], (((VerticalDiscreteSlider)o).indicator[2])/2, mouseX, mouseY)) {
+					((VerticalDiscreteSlider)o).mouseOver = true;
 				}
 				else {
-					((HorizontalDiscreteSlider)o).mouseOver = false;
+					((VerticalDiscreteSlider)o).mouseOver = false;
 				}
 				
 				if(p.mousePressed) {
-					((HorizontalDiscreteSlider)o).mousePress = true;
+					((VerticalDiscreteSlider)o).mousePress = true;
 				}
 				else {
-					((HorizontalDiscreteSlider)o).mousePress = false;
+					((VerticalDiscreteSlider)o).mousePress = false;
 				}
 			break;
 			
