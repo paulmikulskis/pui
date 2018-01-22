@@ -25,6 +25,7 @@ public class VerticalDiscreteSlider extends PApplet{
 	//Value Display Variables
 	public Boolean displayValue;
 	public int displayValueX,displayValueY;
+	public Boolean sleek;
 	
 	//Constructors-----------------------------------
 	//Constructs a slider at the given x and y value, with n subdivisions
@@ -87,6 +88,7 @@ public class VerticalDiscreteSlider extends PApplet{
 		displayValueX = sliderX + sliderLength + 30;
 		displayValueY = sliderY;
 		indicatorDestination = indicator[0];
+		sleek = false;
 	}
 	
 	//Getters----------------------------------------
@@ -95,6 +97,14 @@ public class VerticalDiscreteSlider extends PApplet{
 	}
 
 	//Setters----------------------------------------
+	public void sleek() {
+		if(sleek) {
+			sleek = false;
+		}
+		else {
+			sleek = true;
+		}
+	}
 	public void setTrackColor(int r, int g, int b, int alpha) {
 		trackColor[0] = r;
 		trackColor[1] = g;
@@ -144,8 +154,17 @@ public class VerticalDiscreteSlider extends PApplet{
 		
 		//Draws the track of the slider 
 		p.strokeWeight(3);
-		p.fill(trackColor[0], trackColor[1], trackColor[2], trackColor[3]);
-		p.rect(sliderX-5, sliderY-5, 10, -sliderLength,8,8,8,8);
+		if(sleek) {
+			p.stroke(0,0,0);
+			p.rect(sliderX-1, indicator[1], 2, -(indicator[1] - (sliderY - sliderLength)));
+			p.stroke(trackColor[0], trackColor[1], trackColor[2]);
+			p.rect(sliderX-1, sliderY, 2, indicator[1]-sliderY);
+			p.stroke(0,0,0);
+		}
+		else {
+			p.fill(trackColor[0], trackColor[1], trackColor[2], trackColor[3]);
+			p.rect(sliderX-5, sliderY, 10, -sliderLength,8,8,8,8);
+		}
 		
 		//Draws slider tick marks
 		if(tickValues) {

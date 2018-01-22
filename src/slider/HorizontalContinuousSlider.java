@@ -20,6 +20,7 @@ public class HorizontalContinuousSlider extends PApplet{
 	//Value Display Variables
 	public Boolean displayValue;
 	public int displayValueX,displayValueY;
+	public Boolean sleek;
 	
 	//Constructors-----------------------------------
 	public HorizontalContinuousSlider(int sliderXPos, int sliderYPos, PApplet p) {
@@ -88,6 +89,7 @@ public class HorizontalContinuousSlider extends PApplet{
 		indicator[1] = sliderY;
 		indicator[2] = indicatorSize;
 		indicator[3] = indicatorSize;
+		sleek = false;
 	}
 	//Getters----------------------------------------
 	public float getValue() {
@@ -95,6 +97,15 @@ public class HorizontalContinuousSlider extends PApplet{
 		return ((indicator[0]-sliderX) * slope) + bottomValue;
 	}
 	//Setters----------------------------------------
+	public void sleek() {
+		if(sleek) {
+			sleek = false;
+		}
+		else {
+			sleek = true;
+		}
+	}
+	
 	public void setDisplayPosition(int x, int y) {
 		this.displayValueX = x;
 		this.displayValueY = y;
@@ -144,8 +155,19 @@ public class HorizontalContinuousSlider extends PApplet{
 			p.text(value, displayValueX, displayValueY+9);
 		}
 		p.strokeWeight(3);
-		p.fill(trackColor[0], trackColor[1], trackColor[2], trackColor[3]);
-		p.rect(sliderX, sliderY-5, 10, sliderLength,8,8,8,8);
+		
+		if(sleek) {
+			p.stroke(0,0,0);
+			p.rect(indicator[0], sliderY-1, sliderLength - (indicator[0]-sliderX), 2);
+			p.stroke(trackColor[0], trackColor[1], trackColor[2]);
+			p.rect(sliderX, sliderY-1, indicator[0]-sliderX, 2);
+			p.stroke(0,0,0);
+		}
+		else {
+			p.fill(trackColor[0], trackColor[1], trackColor[2], trackColor[3]);
+			p.rect(sliderX, sliderY-5, 10, sliderLength,8,8,8,8);
+		}
+			
 		if(!mouseOver && mousePress && !active) {
 			p.fill(sliderColor[0], sliderColor[1], sliderColor[2]);
 			p.ellipse(indicator[0], indicator[1], indicator[2], indicator[3]);

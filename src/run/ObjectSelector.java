@@ -2,11 +2,13 @@ package run;
 
 import java.util.ArrayList;
 
+
 import geometry.GeometryTester;
 import processing.core.PApplet;
 import slider.HorizontalContinuousSlider;
 import slider.VerticalDiscreteSlider;
 import slider.VerticalContinuousSlider;
+import slider.HorizontalDiscreteSlider;
 
 public class ObjectSelector extends PApplet{
 
@@ -49,18 +51,18 @@ public class ObjectSelector extends PApplet{
 			
 			//-------Case if the GUI item is a HorizontalDiscreteSlider-------
 			case "class slider.HorizontalDiscreteSlider":
-				if(tester.insideCircle(((VerticalDiscreteSlider)o).indicator[0], ((VerticalDiscreteSlider)o).indicator[1], (((VerticalDiscreteSlider)o).indicator[2])/2, mouseX, mouseY)) {
-					((VerticalDiscreteSlider)o).mouseOver = true;
+				if(tester.insideCircle(((HorizontalDiscreteSlider)o).indicator[0], ((HorizontalDiscreteSlider)o).indicator[1], (((HorizontalDiscreteSlider)o).indicator[2])/2, mouseX, mouseY)) {
+					((HorizontalDiscreteSlider)o).mouseOver = true;
 				}
 				else {
-					((VerticalDiscreteSlider)o).mouseOver = false;
+					((HorizontalDiscreteSlider)o).mouseOver = false;
 				}
 				
 				if(p.mousePressed) {
-					((VerticalDiscreteSlider)o).mousePress = true;
+					((HorizontalDiscreteSlider)o).mousePress = true;
 				}
 				else {
-					((VerticalDiscreteSlider)o).mousePress = false;
+					((HorizontalDiscreteSlider)o).mousePress = false;
 				}
 			break;
 			
